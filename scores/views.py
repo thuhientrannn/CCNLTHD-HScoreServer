@@ -132,7 +132,8 @@ class SemesterSubjectViewSet(viewsets.ModelViewSet):
 
         return queryset
 
-    def list(self, request, semester_id=Semester.objects.last().id):
+    def list(self, request, semester_id):
+        semester_id = Semester.objects.last().id
         subjects = SemesterSubject.objects.filter(semester_id=semester_id, students__in=[request.user.student.id])
         serializer = SemesterSubjectSerializer(subjects, many=True, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)

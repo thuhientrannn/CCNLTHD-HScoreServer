@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'scores.apps.ScoresConfig',
-    'ckeditor',
-    'ckeditor_uploader',
+    'django_ckeditor_5',
     'rest_framework',
     'rest_framework.authtoken',
     'oauth2_provider',
@@ -87,7 +86,7 @@ WSGI_APPLICATION = 'scoremanagementapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.db',
     }
 }
 
@@ -135,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = '%s/scores/static/' % BASE_DIR
 
-CKEDITOR_UPLOAD_PATH = "images/lessons/"
+CKEDITOR_5_UPLOAD_PATH = "images/lessons/"
 
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
